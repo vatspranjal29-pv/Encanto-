@@ -20,9 +20,24 @@ scroll-behavior:smooth;
 
 body{
 font-family:'Poppins',sans-serif;
-background:#f7f3eb;
-color:#3e4631;
+background:#f6f1e8;
+color:#3f4734;
 overflow-x:hidden;
+}
+
+/* GRAIN */
+
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+background:url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+opacity:0.15;
+pointer-events:none;
+z-index:9999;
 }
 
 /* SCROLLBAR */
@@ -32,21 +47,8 @@ width:8px;
 }
 
 ::-webkit-scrollbar-thumb{
-background:#74815c;
-border-radius:10px;
-}
-
-/* GRAIN EFFECT */
-
-body::before{
-content:"";
-position:fixed;
-width:100%;
-height:100%;
-background:url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-opacity:0.15;
-pointer-events:none;
-z-index:9999;
+background:#687455;
+border-radius:20px;
 }
 
 /* TYPOGRAPHY */
@@ -65,19 +67,20 @@ text-decoration:none;
 nav{
 position:fixed;
 top:0;
+left:0;
 width:100%;
 padding:24px 7%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(247,243,235,0.75);
-backdrop-filter:blur(12px);
+background:rgba(246,241,232,0.75);
+backdrop-filter:blur(14px);
 z-index:1000;
 border-bottom:1px solid rgba(0,0,0,0.05);
 }
 
 .logo{
-font-size:42px;
+font-size:44px;
 letter-spacing:3px;
 color:#556044;
 }
@@ -88,10 +91,10 @@ gap:35px;
 }
 
 .nav-links a{
-color:#556044;
-font-size:14px;
-letter-spacing:1px;
+font-size:13px;
+letter-spacing:2px;
 text-transform:uppercase;
+color:#556044;
 position:relative;
 }
 
@@ -114,7 +117,7 @@ width:100%;
 
 .hero{
 min-height:100vh;
-padding:180px 8% 100px;
+padding:170px 8% 100px;
 display:flex;
 align-items:center;
 justify-content:space-between;
@@ -128,17 +131,18 @@ overflow:hidden;
 .blob{
 position:absolute;
 border-radius:50%;
-filter:blur(80px);
+filter:blur(90px);
 opacity:0.35;
 z-index:-1;
+animation:float 7s ease-in-out infinite;
 }
 
 .blob1{
 width:320px;
 height:320px;
-background:#c7cfb0;
+background:#bcc6a7;
 top:10%;
-left:-80px;
+left:-100px;
 }
 
 .blob2{
@@ -146,34 +150,48 @@ width:350px;
 height:350px;
 background:#d8ccb6;
 bottom:-50px;
-right:-80px;
+right:-100px;
+animation-delay:2s;
 }
+
+@keyframes float{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-25px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+
+/* HERO LEFT */
 
 .hero-left{
 flex:1;
 }
 
-.small-text{
-font-size:13px;
-letter-spacing:4px;
+.hero-sub{
+font-size:12px;
+letter-spacing:5px;
 text-transform:uppercase;
-margin-bottom:18px;
-color:#6d775a;
+margin-bottom:20px;
+color:#6b7658;
 }
 
 .hero h1{
-font-size:95px;
-line-height:0.95;
+font-size:100px;
+line-height:0.9;
 margin-bottom:30px;
-max-width:650px;
-color:#4d5a3d;
+color:#4c593c;
 }
 
 .hero p{
 font-size:18px;
-line-height:1.9;
+line-height:2;
 max-width:580px;
-color:#677055;
+color:#667054;
 margin-bottom:40px;
 }
 
@@ -187,12 +205,12 @@ flex-wrap:wrap;
 
 .btn{
 padding:16px 34px;
-border-radius:0;
-font-size:14px;
-letter-spacing:1px;
+font-size:13px;
+letter-spacing:2px;
 text-transform:uppercase;
 transition:0.4s;
 cursor:pointer;
+display:inline-block;
 }
 
 .btn-primary{
@@ -221,192 +239,203 @@ transform:translateY(-5px);
 .hero-right{
 flex:1;
 position:relative;
-height:700px;
+height:750px;
 }
 
-/* MAIN IMAGE */
+/* IMAGES */
 
 .main-image{
 position:absolute;
 width:75%;
-height:520px;
+height:550px;
 right:0;
 top:0;
 object-fit:cover;
-box-shadow:0 25px 50px rgba(0,0,0,0.15);
-transform:rotate(3deg);
+transform:rotate(4deg);
+box-shadow:0 30px 60px rgba(0,0,0,0.18);
 }
-
-/* OVERLAY IMAGE */
 
 .overlay-image{
 position:absolute;
 width:45%;
 height:300px;
 left:0;
-bottom:70px;
+bottom:90px;
 object-fit:cover;
-border:12px solid #f7f3eb;
-box-shadow:0 20px 40px rgba(0,0,0,0.12);
-transform:rotate(-6deg);
+border:12px solid #f6f1e8;
+transform:rotate(-7deg);
+box-shadow:0 25px 50px rgba(0,0,0,0.15);
 }
 
-/* TORN PAPER */
+/* TORN NOTES */
 
 .note{
 position:absolute;
-background:#f5eee2;
+background:#f4ebdc;
 padding:30px;
 width:260px;
 font-family:'Caveat',cursive;
-font-size:28px;
-line-height:1.4;
-color:#556044;
-box-shadow:0 15px 30px rgba(0,0,0,0.08);
+font-size:30px;
+line-height:1.3;
+color:#5b6649;
+box-shadow:0 18px 35px rgba(0,0,0,0.08);
 
 clip-path:polygon(
 0 6%,
-7% 0,
+8% 0,
 18% 4%,
-30% 0,
+31% 0,
 43% 5%,
 57% 0,
-71% 4%,
+72% 4%,
 84% 0,
 100% 6%,
-96% 23%,
-100% 38%,
-94% 56%,
-100% 72%,
-95% 89%,
+95% 22%,
+100% 39%,
+94% 57%,
+100% 73%,
+95% 88%,
 100% 100%,
-84% 95%,
-67% 100%,
-49% 94%,
-31% 100%,
-13% 94%,
+82% 95%,
+66% 100%,
+48% 94%,
+30% 100%,
+14% 94%,
 0 100%,
-5% 80%,
+5% 79%,
 0 63%,
-5% 45%,
-0 26%
+4% 45%,
+0 28%
 );
-
-transform:rotate(-8deg);
 }
 
 .note1{
 top:80px;
 left:-20px;
+transform:rotate(-7deg);
 }
 
 .note2{
-bottom:-10px;
+bottom:0;
 right:50px;
-transform:rotate(7deg);
+transform:rotate(8deg);
 }
 
-/* SECTION */
+/* SECTIONS */
 
 section{
-padding:130px 8%;
+padding:140px 8%;
 position:relative;
 }
 
-.section-header{
-margin-bottom:70px;
-}
-
 .section-sub{
-font-size:13px;
+font-size:12px;
 letter-spacing:4px;
 text-transform:uppercase;
-margin-bottom:15px;
-color:#7b8468;
+margin-bottom:20px;
+color:#7b8668;
 }
 
 .section-title{
-font-size:65px;
+font-size:68px;
 line-height:1;
 max-width:700px;
+margin-bottom:80px;
+color:#4d593d;
 }
 
-/* COLLECTIONS */
+/* COLLECTION */
 
-.collection-grid{
+.collection{
 display:grid;
 grid-template-columns:1.2fr 0.8fr;
-gap:40px;
+gap:50px;
 align-items:center;
-margin-bottom:100px;
+margin-bottom:130px;
 }
 
-.collection-grid.reverse{
+.collection.reverse{
 grid-template-columns:0.8fr 1.2fr;
 }
 
 .collection-image{
 position:relative;
-height:650px;
+height:680px;
 }
 
 .collection-image img{
 width:100%;
 height:100%;
 object-fit:cover;
-box-shadow:0 25px 50px rgba(0,0,0,0.12);
-}
-
-.collection-content{
-padding:40px;
+box-shadow:0 30px 60px rgba(0,0,0,0.12);
 }
 
 .collection-content h3{
-font-size:58px;
+font-size:60px;
 margin-bottom:25px;
-color:#4c593c;
 }
 
 .collection-content p{
 line-height:2;
 font-size:17px;
-color:#6d755d;
 margin-bottom:30px;
+color:#697257;
 }
 
 .price{
-font-size:22px;
-margin-bottom:25px;
+font-size:24px;
 color:#6d7b56;
+margin-bottom:25px;
 font-weight:600;
 }
 
-/* FLOATING LABEL */
-
-.floating-tag{
+.floating-label{
 position:absolute;
 background:#6d7b56;
 color:white;
-padding:16px 26px;
-bottom:-20px;
+padding:16px 28px;
 right:40px;
+bottom:-20px;
 letter-spacing:2px;
-font-size:12px;
+font-size:11px;
 text-transform:uppercase;
+}
+
+/* BIG QUOTE SECTION */
+
+.big-quote{
+padding:180px 8%;
+text-align:center;
+position:relative;
+}
+
+.big-quote h2{
+font-size:120px;
+line-height:0.9;
+max-width:1000px;
+margin:auto;
+color:#4d593d;
+}
+
+.big-quote p{
+margin-top:35px;
+letter-spacing:4px;
+text-transform:uppercase;
+font-size:12px;
+color:#7a8467;
 }
 
 /* EXPERIENCE */
 
 .experience{
 background:#e6ead9;
-padding:120px 8%;
 overflow:hidden;
 }
 
-.experience-wrapper{
+.exp-wrap{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:60px;
+gap:70px;
 align-items:center;
 }
 
@@ -417,69 +446,35 @@ margin-bottom:30px;
 }
 
 .exp-text p{
-line-height:2;
 font-size:17px;
+line-height:2;
 max-width:550px;
 }
 
-.exp-image{
+.exp-images{
 position:relative;
-height:600px;
-}
-
-.exp-image img{
-position:absolute;
-object-fit:cover;
-box-shadow:0 20px 40px rgba(0,0,0,0.15);
+height:650px;
 }
 
 .exp1{
+position:absolute;
 width:70%;
-height:450px;
+height:470px;
+object-fit:cover;
 top:0;
 left:0;
+box-shadow:0 25px 50px rgba(0,0,0,0.15);
 }
 
 .exp2{
+position:absolute;
 width:45%;
-height:260px;
+height:280px;
+object-fit:cover;
 right:0;
 bottom:0;
 border:10px solid #e6ead9;
-}
-
-/* TESTIMONIAL */
-
-.testimonial{
-padding:160px 8%;
-text-align:center;
-position:relative;
-}
-
-.quote{
-font-size:120px;
-opacity:0.1;
-position:absolute;
-top:70px;
-left:50%;
-transform:translateX(-50%);
-}
-
-.testimonial p{
-font-size:34px;
-line-height:1.8;
-max-width:900px;
-margin:auto;
-font-family:'Cormorant Garamond',serif;
-color:#4c593c;
-}
-
-.testimonial span{
-display:block;
-margin-top:30px;
-letter-spacing:3px;
-text-transform:uppercase;
-font-size:13px;
+box-shadow:0 20px 40px rgba(0,0,0,0.12);
 }
 
 /* GALLERY */
@@ -492,9 +487,10 @@ gap:18px;
 
 .gallery img{
 width:100%;
-height:350px;
+height:360px;
 object-fit:cover;
 transition:0.5s;
+box-shadow:0 15px 30px rgba(0,0,0,0.08);
 }
 
 .gallery img:nth-child(2){
@@ -509,26 +505,183 @@ margin-top:-70px;
 transform:scale(1.03);
 }
 
+/* CORK BOARD REVIEWS */
+
+.cork-section{
+background:#d9c2a3;
+padding:170px 8%;
+position:relative;
+overflow:hidden;
+}
+
+.cork-section::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+top:0;
+left:0;
+background:url('https://www.transparenttextures.com/patterns/cork-board.png');
+opacity:0.45;
+}
+
+.cork-title{
+position:relative;
+z-index:2;
+text-align:center;
+margin-bottom:100px;
+}
+
+.cork-title h2{
+font-size:72px;
+margin-bottom:20px;
+color:#4b563d;
+}
+
+.cork-title p{
+letter-spacing:4px;
+text-transform:uppercase;
+font-size:12px;
+color:#5c664a;
+}
+
+/* COLLAGE */
+
+.review-collage{
+position:relative;
+height:1000px;
+max-width:1400px;
+margin:auto;
+z-index:2;
+}
+
+/* REVIEW CARD */
+
+.review-card{
+position:absolute;
+background:#f7f1e7;
+padding:35px;
+width:290px;
+min-height:240px;
+box-shadow:0 25px 50px rgba(0,0,0,0.15);
+transition:0.4s;
+}
+
+.review-card:hover{
+transform:scale(1.04) rotate(0deg);
+z-index:20;
+}
+
+/* TAPE */
+
+.review-card::before{
+content:"";
+position:absolute;
+width:90px;
+height:25px;
+background:rgba(255,255,255,0.45);
+top:-12px;
+left:50%;
+transform:translateX(-50%) rotate(-2deg);
+backdrop-filter:blur(3px);
+}
+
+/* PUSH PINS */
+
+.pin{
+position:absolute;
+width:18px;
+height:18px;
+background:#556044;
+border-radius:50%;
+top:12px;
+right:14px;
+box-shadow:0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* REVIEW TEXT */
+
+.review-text{
+font-family:'Caveat',cursive;
+font-size:30px;
+line-height:1.4;
+color:#49553a;
+margin-bottom:25px;
+}
+
+.review-user{
+font-size:12px;
+letter-spacing:3px;
+text-transform:uppercase;
+color:#7c866b;
+}
+
+/* INDIVIDUAL CARDS */
+
+.card1{
+top:0;
+left:5%;
+transform:rotate(-7deg);
+}
+
+.card2{
+top:120px;
+right:8%;
+transform:rotate(6deg);
+}
+
+.card3{
+top:390px;
+left:18%;
+transform:rotate(4deg);
+}
+
+.card4{
+top:460px;
+right:15%;
+transform:rotate(-5deg);
+}
+
+.card5{
+bottom:30px;
+left:38%;
+transform:rotate(3deg);
+}
+
 /* FOOTER */
 
 footer{
-padding:120px 8% 50px;
 background:#5d6949;
+padding:140px 8% 60px;
 color:#f5efe4;
-margin-top:120px;
 position:relative;
+overflow:hidden;
+}
+
+footer::before{
+content:"ENCANTO";
+position:absolute;
+font-size:230px;
+font-family:'Cormorant Garamond',serif;
+opacity:0.04;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+letter-spacing:15px;
 }
 
 .footer-top{
 display:flex;
 justify-content:space-between;
 flex-wrap:wrap;
-gap:40px;
-margin-bottom:70px;
+gap:50px;
+position:relative;
+z-index:2;
+margin-bottom:80px;
 }
 
 .footer-brand h2{
-font-size:70px;
+font-size:80px;
 margin-bottom:20px;
 }
 
@@ -541,24 +694,26 @@ color:#dfe5d0;
 .footer-links{
 display:flex;
 flex-direction:column;
-gap:16px;
+gap:18px;
 }
 
 .footer-links a{
 color:#eef2e4;
-font-size:15px;
-letter-spacing:1px;
+font-size:14px;
+letter-spacing:2px;
 text-transform:uppercase;
 }
 
 .footer-bottom{
-border-top:1px solid rgba(255,255,255,0.2);
-padding-top:30px;
+border-top:1px solid rgba(255,255,255,0.15);
+padding-top:35px;
 display:flex;
 justify-content:space-between;
 flex-wrap:wrap;
 gap:20px;
-font-size:14px;
+font-size:13px;
+position:relative;
+z-index:2;
 }
 
 /* MOBILE */
@@ -579,9 +734,9 @@ width:100%;
 height:650px;
 }
 
-.collection-grid,
-.collection-grid.reverse,
-.experience-wrapper{
+.collection,
+.collection.reverse,
+.exp-wrap{
 grid-template-columns:1fr;
 }
 
@@ -591,6 +746,27 @@ grid-template-columns:1fr 1fr;
 
 .section-title{
 font-size:50px;
+}
+
+.big-quote h2{
+font-size:75px;
+}
+
+.review-collage{
+height:auto;
+display:flex;
+flex-direction:column;
+gap:40px;
+align-items:center;
+}
+
+.review-card{
+position:relative;
+top:auto;
+left:auto;
+right:auto;
+bottom:auto;
+transform:none !important;
 }
 
 }
@@ -605,9 +781,12 @@ display:none;
 font-size:50px;
 }
 
-.section-title,
-.exp-text h2{
-font-size:42px;
+.hero-right{
+height:550px;
+}
+
+.main-image{
+height:400px;
 }
 
 .gallery{
@@ -619,17 +798,19 @@ grid-template-columns:1fr;
 margin-top:0;
 }
 
+.big-quote h2,
+.section-title,
+.exp-text h2{
+font-size:45px;
+}
+
 .note{
 width:200px;
 font-size:22px;
 }
 
-.hero-right{
-height:550px;
-}
-
-.main-image{
-height:400px;
+.footer-brand h2{
+font-size:52px;
 }
 
 }
@@ -664,7 +845,9 @@ height:400px;
 
 <div class="hero-left">
 
-<div class="small-text">Curated gifting studio</div>
+<div class="hero-sub">
+Curated gifting studio
+</div>
 
 <h1>
 Wrapped<br>
@@ -673,13 +856,19 @@ Remembered Forever
 </h1>
 
 <p>
-Encanto creates handcrafted aesthetic hampers filled with warmth, intimacy and little details that feel unforgettable.
-Soft luxury gifting inspired by organic textures, muted elegance and meaningful moments.
+Encanto creates handcrafted aesthetic hampers layered with warmth, texture and meaningful little details designed to feel unforgettable.
 </p>
 
 <div class="hero-buttons">
-<a href="#" class="btn btn-primary">Explore Collection</a>
-<a href="#" class="btn btn-secondary">Build Your Hamper</a>
+
+<a href="#" class="btn btn-primary">
+Explore Collection
+</a>
+
+<a href="#" class="btn btn-secondary">
+Build Your Hamper
+</a>
+
 </div>
 
 </div>
@@ -702,38 +891,43 @@ tiny details make the most beautiful memories
 
 </section>
 
-<!-- COLLECTION -->
+<!-- COLLECTIONS -->
 
 <section>
 
-<div class="section-header">
-<div class="section-sub">Curated collections</div>
+<div class="section-sub">
+Curated collections
+</div>
+
 <h2 class="section-title">
 Thoughtfully designed for every beautiful occasion.
 </h2>
-</div>
 
-<div class="collection-grid">
+<div class="collection">
 
 <div class="collection-image">
 
 <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=1200&auto=format&fit=crop">
 
-<div class="floating-tag">
-Luxury Box Collection
+<div class="floating-label">
+Luxury Collection
 </div>
 
 </div>
 
 <div class="collection-content">
 
-<h3>Luxury Keepsakes</h3>
+<h3>
+Luxury Keepsakes
+</h3>
 
 <p>
-Elegant curated boxes layered with artisanal chocolates, candles, florals and delicate details. Designed to feel personal, intentional and emotionally memorable.
+Elegant curated boxes layered with florals, artisanal chocolates, candles and timeless details that feel personal and intentional.
 </p>
 
-<div class="price">Starting at ₹999</div>
+<div class="price">
+Starting at ₹999
+</div>
 
 <a href="#" class="btn btn-primary">
 View Collection
@@ -743,17 +937,21 @@ View Collection
 
 </div>
 
-<div class="collection-grid reverse">
+<div class="collection reverse">
 
 <div class="collection-content">
 
-<h3>Bloom Stories</h3>
+<h3>
+Bloom Stories
+</h3>
 
 <p>
-A bouquet reimagined through gifting. Soft florals, handwritten notes and aesthetic textures layered together to create a poetic gifting experience.
+A bouquet reimagined through textures, handwritten notes and aesthetic layers — turning gifting into something poetic and memorable.
 </p>
 
-<div class="price">Starting at ₹799</div>
+<div class="price">
+Starting at ₹799
+</div>
 
 <a href="#" class="btn btn-primary">
 Explore Hampers
@@ -765,8 +963,8 @@ Explore Hampers
 
 <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=1200&auto=format&fit=crop">
 
-<div class="floating-tag">
-Signature Collection
+<div class="floating-label">
+Signature Edit
 </div>
 
 </div>
@@ -775,28 +973,43 @@ Signature Collection
 
 </section>
 
+<!-- BIG TYPOGRAPHY -->
+
+<section class="big-quote">
+
+<h2>
+Made To Be Remembered
+</h2>
+
+<p>
+crafted softly • gifted meaningfully
+</p>
+
+</section>
+
 <!-- EXPERIENCE -->
 
 <section class="experience">
 
-<div class="experience-wrapper">
+<div class="exp-wrap">
 
 <div class="exp-text">
 
-<div class="section-sub">The encanto experience</div>
+<div class="section-sub">
+The encanto experience
+</div>
 
 <h2>
 More Than A Gift
 </h2>
 
 <p>
-Every Encanto hamper is built like a memory capsule — ribbons, textures, handwritten notes and thoughtful details layered together with intention.
-Not just gifting, but storytelling through objects and emotion.
+Every Encanto hamper is designed like a memory capsule — ribbons, handwritten notes, textures and meaningful little details layered together beautifully.
 </p>
 
 </div>
 
-<div class="exp-image">
+<div class="exp-images">
 
 <img class="exp1" src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=1200&auto=format&fit=crop">
 
@@ -808,32 +1021,17 @@ Not just gifting, but storytelling through objects and emotion.
 
 </section>
 
-<!-- TESTIMONIAL -->
-
-<section class="testimonial">
-
-<div class="quote">“</div>
-
-<p>
-The packaging felt like opening a beautifully curated art piece.
-Every ribbon, texture and handwritten detail made it feel deeply personal and luxurious.
-</p>
-
-<span>— Aanya Mehra</span>
-
-</section>
-
 <!-- GALLERY -->
 
 <section>
 
-<div class="section-header">
-<div class="section-sub">A glimpse into encanto</div>
+<div class="section-sub">
+A glimpse into encanto
+</div>
 
 <h2 class="section-title">
 Organic textures, muted elegance and meaningful gifting.
 </h2>
-</div>
 
 <div class="gallery">
 
@@ -849,6 +1047,98 @@ Organic textures, muted elegance and meaningful gifting.
 
 </section>
 
+<!-- CORK BOARD REVIEWS -->
+
+<section class="cork-section">
+
+<div class="cork-title">
+
+<h2>
+Pinned Memories
+</h2>
+
+<p>
+little notes from beautiful moments
+</p>
+
+</div>
+
+<div class="review-collage">
+
+<div class="review-card card1">
+
+<div class="pin"></div>
+
+<div class="review-text">
+“the prettiest hamper i've ever gifted — every detail felt intentional.”
+</div>
+
+<div class="review-user">
+— aanya
+</div>
+
+</div>
+
+<div class="review-card card2">
+
+<div class="pin"></div>
+
+<div class="review-text">
+“felt like opening a pinterest moodboard wrapped beautifully.”
+</div>
+
+<div class="review-user">
+— riya
+</div>
+
+</div>
+
+<div class="review-card card3">
+
+<div class="pin"></div>
+
+<div class="review-text">
+“the handwritten details made it feel incredibly personal.”
+</div>
+
+<div class="review-user">
+— mehak
+</div>
+
+</div>
+
+<div class="review-card card4">
+
+<div class="pin"></div>
+
+<div class="review-text">
+“soft luxury in the most beautiful way possible.”
+</div>
+
+<div class="review-user">
+— tara
+</div>
+
+</div>
+
+<div class="review-card card5">
+
+<div class="pin"></div>
+
+<div class="review-text">
+“every ribbon, texture and detail felt magical.”
+</div>
+
+<div class="review-user">
+— naina
+</div>
+
+</div>
+
+</div>
+
+</section>
+
 <!-- FOOTER -->
 
 <footer>
@@ -857,7 +1147,9 @@ Organic textures, muted elegance and meaningful gifting.
 
 <div class="footer-brand">
 
-<h2>Encanto</h2>
+<h2>
+Encanto
+</h2>
 
 <p>
 Crafted softly. Gifted meaningfully.
@@ -867,10 +1159,23 @@ Luxury gifting inspired by warmth, storytelling and timeless details.
 </div>
 
 <div class="footer-links">
-<a href="#">Instagram</a>
-<a href="#">Pinterest</a>
-<a href="#">WhatsApp</a>
-<a href="#">Contact</a>
+
+<a href="#">
+Instagram
+</a>
+
+<a href="#">
+Pinterest
+</a>
+
+<a href="#">
+WhatsApp
+</a>
+
+<a href="#">
+Contact
+</a>
+
 </div>
 
 </div>
@@ -882,10 +1187,12 @@ Luxury gifting inspired by warmth, storytelling and timeless details.
 </div>
 
 <div>
-Wrapped with warmth & wonder
+wrapped with warmth & wonder
+</div>
+
 </div>
 
 </footer>
 
 </body>
-</html>i
+</html>
