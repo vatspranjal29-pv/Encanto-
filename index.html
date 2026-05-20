@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Encanto Hampers</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f7f3eb;
+color:#3e4631;
+overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#74815c;
+border-radius:10px;
+}
+
+/* GRAIN EFFECT */
+
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+opacity:0.15;
+pointer-events:none;
+z-index:9999;
+}
+
+/* TYPOGRAPHY */
+
+h1,h2,h3{
+font-family:'Cormorant Garamond',serif;
+font-weight:600;
+}
+
+a{
+text-decoration:none;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:24px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(247,243,235,0.75);
+backdrop-filter:blur(12px);
+z-index:1000;
+border-bottom:1px solid rgba(0,0,0,0.05);
+}
+
+.logo{
+font-size:42px;
+letter-spacing:3px;
+color:#556044;
+}
+
+.nav-links{
+display:flex;
+gap:35px;
+}
+
+.nav-links a{
+color:#556044;
+font-size:14px;
+letter-spacing:1px;
+text-transform:uppercase;
+position:relative;
+}
+
+.nav-links a::after{
+content:"";
+position:absolute;
+width:0%;
+height:1px;
+background:#556044;
+left:0;
+bottom:-7px;
+transition:0.4s;
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+padding:180px 8% 100px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:70px;
+position:relative;
+overflow:hidden;
+}
+
+/* BLOBS */
+
+.blob{
+position:absolute;
+border-radius:50%;
+filter:blur(80px);
+opacity:0.35;
+z-index:-1;
+}
+
+.blob1{
+width:320px;
+height:320px;
+background:#c7cfb0;
+top:10%;
+left:-80px;
+}
+
+.blob2{
+width:350px;
+height:350px;
+background:#d8ccb6;
+bottom:-50px;
+right:-80px;
+}
+
+.hero-left{
+flex:1;
+}
+
+.small-text{
+font-size:13px;
+letter-spacing:4px;
+text-transform:uppercase;
+margin-bottom:18px;
+color:#6d775a;
+}
+
+.hero h1{
+font-size:95px;
+line-height:0.95;
+margin-bottom:30px;
+max-width:650px;
+color:#4d5a3d;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.9;
+max-width:580px;
+color:#677055;
+margin-bottom:40px;
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:16px 34px;
+border-radius:0;
+font-size:14px;
+letter-spacing:1px;
+text-transform:uppercase;
+transition:0.4s;
+cursor:pointer;
+}
+
+.btn-primary{
+background:#6d7b56;
+color:white;
+}
+
+.btn-primary:hover{
+background:#566243;
+transform:translateY(-5px);
+}
+
+.btn-secondary{
+border:1px solid #6d7b56;
+color:#556044;
+}
+
+.btn-secondary:hover{
+background:#6d7b56;
+color:white;
+transform:translateY(-5px);
+}
+
+/* HERO RIGHT */
+
+.hero-right{
+flex:1;
+position:relative;
+height:700px;
+}
+
+/* MAIN IMAGE */
+
+.main-image{
+position:absolute;
+width:75%;
+height:520px;
+right:0;
+top:0;
+object-fit:cover;
+box-shadow:0 25px 50px rgba(0,0,0,0.15);
+transform:rotate(3deg);
+}
+
+/* OVERLAY IMAGE */
+
+.overlay-image{
+position:absolute;
+width:45%;
+height:300px;
+left:0;
+bottom:70px;
+object-fit:cover;
+border:12px solid #f7f3eb;
+box-shadow:0 20px 40px rgba(0,0,0,0.12);
+transform:rotate(-6deg);
+}
+
+/* TORN PAPER */
+
+.note{
+position:absolute;
+background:#f5eee2;
+padding:30px;
+width:260px;
+font-family:'Caveat',cursive;
+font-size:28px;
+line-height:1.4;
+color:#556044;
+box-shadow:0 15px 30px rgba(0,0,0,0.08);
+
+clip-path:polygon(
+0 6%,
+7% 0,
+18% 4%,
+30% 0,
+43% 5%,
+57% 0,
+71% 4%,
+84% 0,
+100% 6%,
+96% 23%,
+100% 38%,
+94% 56%,
+100% 72%,
+95% 89%,
+100% 100%,
+84% 95%,
+67% 100%,
+49% 94%,
+31% 100%,
+13% 94%,
+0 100%,
+5% 80%,
+0 63%,
+5% 45%,
+0 26%
+);
+
+transform:rotate(-8deg);
+}
+
+.note1{
+top:80px;
+left:-20px;
+}
+
+.note2{
+bottom:-10px;
+right:50px;
+transform:rotate(7deg);
+}
+
+/* SECTION */
+
+section{
+padding:130px 8%;
+position:relative;
+}
+
+.section-header{
+margin-bottom:70px;
+}
+
+.section-sub{
+font-size:13px;
+letter-spacing:4px;
+text-transform:uppercase;
+margin-bottom:15px;
+color:#7b8468;
+}
+
+.section-title{
+font-size:65px;
+line-height:1;
+max-width:700px;
+}
+
+/* COLLECTIONS */
+
+.collection-grid{
+display:grid;
+grid-template-columns:1.2fr 0.8fr;
+gap:40px;
+align-items:center;
+margin-bottom:100px;
+}
+
+.collection-grid.reverse{
+grid-template-columns:0.8fr 1.2fr;
+}
+
+.collection-image{
+position:relative;
+height:650px;
+}
+
+.collection-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+box-shadow:0 25px 50px rgba(0,0,0,0.12);
+}
+
+.collection-content{
+padding:40px;
+}
+
+.collection-content h3{
+font-size:58px;
+margin-bottom:25px;
+color:#4c593c;
+}
+
+.collection-content p{
+line-height:2;
+font-size:17px;
+color:#6d755d;
+margin-bottom:30px;
+}
+
+.price{
+font-size:22px;
+margin-bottom:25px;
+color:#6d7b56;
+font-weight:600;
+}
+
+/* FLOATING LABEL */
+
+.floating-tag{
+position:absolute;
+background:#6d7b56;
+color:white;
+padding:16px 26px;
+bottom:-20px;
+right:40px;
+letter-spacing:2px;
+font-size:12px;
+text-transform:uppercase;
+}
+
+/* EXPERIENCE */
+
+.experience{
+background:#e6ead9;
+padding:120px 8%;
+overflow:hidden;
+}
+
+.experience-wrapper{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.exp-text h2{
+font-size:75px;
+line-height:0.95;
+margin-bottom:30px;
+}
+
+.exp-text p{
+line-height:2;
+font-size:17px;
+max-width:550px;
+}
+
+.exp-image{
+position:relative;
+height:600px;
+}
+
+.exp-image img{
+position:absolute;
+object-fit:cover;
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+.exp1{
+width:70%;
+height:450px;
+top:0;
+left:0;
+}
+
+.exp2{
+width:45%;
+height:260px;
+right:0;
+bottom:0;
+border:10px solid #e6ead9;
+}
+
+/* TESTIMONIAL */
+
+.testimonial{
+padding:160px 8%;
+text-align:center;
+position:relative;
+}
+
+.quote{
+font-size:120px;
+opacity:0.1;
+position:absolute;
+top:70px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.testimonial p{
+font-size:34px;
+line-height:1.8;
+max-width:900px;
+margin:auto;
+font-family:'Cormorant Garamond',serif;
+color:#4c593c;
+}
+
+.testimonial span{
+display:block;
+margin-top:30px;
+letter-spacing:3px;
+text-transform:uppercase;
+font-size:13px;
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.gallery img{
+width:100%;
+height:350px;
+object-fit:cover;
+transition:0.5s;
+}
+
+.gallery img:nth-child(2){
+margin-top:70px;
+}
+
+.gallery img:nth-child(4){
+margin-top:-70px;
+}
+
+.gallery img:hover{
+transform:scale(1.03);
+}
+
+/* FOOTER */
+
+footer{
+padding:120px 8% 50px;
+background:#5d6949;
+color:#f5efe4;
+margin-top:120px;
+position:relative;
+}
+
+.footer-top{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:40px;
+margin-bottom:70px;
+}
+
+.footer-brand h2{
+font-size:70px;
+margin-bottom:20px;
+}
+
+.footer-brand p{
+max-width:450px;
+line-height:2;
+color:#dfe5d0;
+}
+
+.footer-links{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.footer-links a{
+color:#eef2e4;
+font-size:15px;
+letter-spacing:1px;
+text-transform:uppercase;
+}
+
+.footer-bottom{
+border-top:1px solid rgba(255,255,255,0.2);
+padding-top:30px;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:20px;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+.hero{
+flex-direction:column;
+padding-top:150px;
+}
+
+.hero h1{
+font-size:65px;
+}
+
+.hero-right{
+width:100%;
+height:650px;
+}
+
+.collection-grid,
+.collection-grid.reverse,
+.experience-wrapper{
+grid-template-columns:1fr;
+}
+
+.gallery{
+grid-template-columns:1fr 1fr;
+}
+
+.section-title{
+font-size:50px;
+}
+
+}
+
+@media(max-width:700px){
+
+.nav-links{
+display:none;
+}
+
+.hero h1{
+font-size:50px;
+}
+
+.section-title,
+.exp-text h2{
+font-size:42px;
+}
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+.gallery img:nth-child(2),
+.gallery img:nth-child(4){
+margin-top:0;
+}
+
+.note{
+width:200px;
+font-size:22px;
+}
+
+.hero-right{
+height:550px;
+}
+
+.main-image{
+height:400px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">Encanto</div>
+
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#">Collections</a>
+<a href="#">Custom</a>
+<a href="#">Journal</a>
+<a href="#">Contact</a>
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+
+<div class="hero-left">
+
+<div class="small-text">Curated gifting studio</div>
+
+<h1>
+Wrapped<br>
+Beautifully,<br>
+Remembered Forever
+</h1>
+
+<p>
+Encanto creates handcrafted aesthetic hampers filled with warmth, intimacy and little details that feel unforgettable.
+Soft luxury gifting inspired by organic textures, muted elegance and meaningful moments.
+</p>
+
+<div class="hero-buttons">
+<a href="#" class="btn btn-primary">Explore Collection</a>
+<a href="#" class="btn btn-secondary">Build Your Hamper</a>
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<img class="main-image" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop">
+
+<img class="overlay-image" src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200&auto=format&fit=crop">
+
+<div class="note note1">
+for the moments that deserve softness
+</div>
+
+<div class="note note2">
+tiny details make the most beautiful memories
+</div>
+
+</div>
+
+</section>
+
+<!-- COLLECTION -->
+
+<section>
+
+<div class="section-header">
+<div class="section-sub">Curated collections</div>
+<h2 class="section-title">
+Thoughtfully designed for every beautiful occasion.
+</h2>
+</div>
+
+<div class="collection-grid">
+
+<div class="collection-image">
+
+<img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=1200&auto=format&fit=crop">
+
+<div class="floating-tag">
+Luxury Box Collection
+</div>
+
+</div>
+
+<div class="collection-content">
+
+<h3>Luxury Keepsakes</h3>
+
+<p>
+Elegant curated boxes layered with artisanal chocolates, candles, florals and delicate details. Designed to feel personal, intentional and emotionally memorable.
+</p>
+
+<div class="price">Starting at ₹999</div>
+
+<a href="#" class="btn btn-primary">
+View Collection
+</a>
+
+</div>
+
+</div>
+
+<div class="collection-grid reverse">
+
+<div class="collection-content">
+
+<h3>Bloom Stories</h3>
+
+<p>
+A bouquet reimagined through gifting. Soft florals, handwritten notes and aesthetic textures layered together to create a poetic gifting experience.
+</p>
+
+<div class="price">Starting at ₹799</div>
+
+<a href="#" class="btn btn-primary">
+Explore Hampers
+</a>
+
+</div>
+
+<div class="collection-image">
+
+<img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=1200&auto=format&fit=crop">
+
+<div class="floating-tag">
+Signature Collection
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section class="experience">
+
+<div class="experience-wrapper">
+
+<div class="exp-text">
+
+<div class="section-sub">The encanto experience</div>
+
+<h2>
+More Than A Gift
+</h2>
+
+<p>
+Every Encanto hamper is built like a memory capsule — ribbons, textures, handwritten notes and thoughtful details layered together with intention.
+Not just gifting, but storytelling through objects and emotion.
+</p>
+
+</div>
+
+<div class="exp-image">
+
+<img class="exp1" src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=1200&auto=format&fit=crop">
+
+<img class="exp2" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TESTIMONIAL -->
+
+<section class="testimonial">
+
+<div class="quote">“</div>
+
+<p>
+The packaging felt like opening a beautifully curated art piece.
+Every ribbon, texture and handwritten detail made it feel deeply personal and luxurious.
+</p>
+
+<span>— Aanya Mehra</span>
+
+</section>
+
+<!-- GALLERY -->
+
+<section>
+
+<div class="section-header">
+<div class="section-sub">A glimpse into encanto</div>
+
+<h2 class="section-title">
+Organic textures, muted elegance and meaningful gifting.
+</h2>
+</div>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-top">
+
+<div class="footer-brand">
+
+<h2>Encanto</h2>
+
+<p>
+Crafted softly. Gifted meaningfully.
+Luxury gifting inspired by warmth, storytelling and timeless details.
+</p>
+
+</div>
+
+<div class="footer-links">
+<a href="#">Instagram</a>
+<a href="#">Pinterest</a>
+<a href="#">WhatsApp</a>
+<a href="#">Contact</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<div>
+© 2026 Encanto Hampers
+</div>
+
+<div>
+Wrapped with warmth & wonder
+</div>
+
+</footer>
+
+</body>
+</html>i
